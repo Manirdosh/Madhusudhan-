@@ -1,297 +1,268 @@
+function showCategory(s1, s2){
+    var s1 = document.getElementById(s1);
+    var s2 = document.getElementById(s2);
 
-    function showCategory(s1, s2){
-       var s1 = document.getElementById(s1);
-       var s2 = document.getElementById(s2);
+    s2.innerHTML = "";
+    if(s1.value == "vegetable"){
+        var optionArray = [
+        "choose_vegetable|Choose Vegetable-तरकारी छान्नुहोस्",
+        "crucifer|Crucifer and Oilseed-फुलगोबी र तेलबाली",
+        "legumes|Legumes-कोषेबाली",
+        "cucurbits|Cucurbits-लहरे बाली",
+        "tomato|Tomato & Potato-टमाटर र आलु",
+        "brinjal|Brinjal-चिप्ले भिंडी", 
+        "cotton|Cotton & Okra-कपास र भिंडी", 
+        "chilly|Chilly-खुर्सानी",
+        "onion|Onion-प्याज"
+     ];
+    }else if(s1.value == "fruits"){
+     var optionArray = [
+        "choose_fruits|Choose Fruits-फलफुल छान्नुहोस्",
+        "temperate-fruit|Temperate Fruit-समशीतोष्ण फल",
+         "mango|Mango-आप",
+         "pomegranate|Pomegranate-अनार",  
+         "litchi|Litchi-लिची",
+         "banana|Banana-केरा",
+         "citrus|Citrus-सिट्रस परिवार",
+         "coffee|Coffee-कफी",  
+         "tea|Tea-चिया",  
+         "cardamom|Cardamom-अलैंची"
+     ];
+    }else if(s1.value == "cereal"){
+     var optionArray = [
+        "choose_cereal|Choose Cereal Crops-खाध्यवाली छान्नुहाेस",
+         "rice|Rice-धान ",
+         "maize|Maize-मकै",
+         "wheat|Wheat-गहुँ "
+     ];
+ }else if(s1.value == "cashcrop"){
+     var optionArray = [
+        "choose_cash|Choose Cash Crops-नगदेबाली छान्नुहाेस",
+         "sugarcane|Sugarcane (उखु)",
+         "jute|Jute-जुट"
+     ];
+ }
 
-       s2.innerHTML = "";
-       if(s1.value == "vegetable"){
-           var optionArray = [
-            "choose_vegetable|Choose Vegetable-तरकारी छान्नुहोस्",
-            "potato|Potato-आलु",
-            "tomato|Tomato/Chillly-टमाटर/खुर्सानी",
-           "crucifer|Crucifer Crops",
-           "root|Root Crops-जरा बाली",
-           "cucurbit|Cucurbit-कुकुरबिट",
-           "bean|Bean/Pea-सिमि/केराउ",
-           "brinjal|Brinjal-चिप्ले भिंडी",
-           "bulbous|Bulbous Crop-बल्बस बाली",
-           "ginger|Ginger-अदुवा",
-           "coriander|Coriander-धनिया"
+
+    for(var option in optionArray){
+     var pair = optionArray[option].split("|");
+     var newOption = document.createElement("option");
+     newOption.value = pair[0];
+     newOption.innerHTML = pair[1];
+     s2.options.add(newOption);
+    }
+
+ }
+
+ function showPest(c1, c2){
+    var c1 = document.getElementById(c1);
+    var c2 = document.getElementById(c2);
+
+    c2.innerHTML = "";
+
+    if(c1.value == "crucifer"){
+        var pestArray = [
+            "crucifer1|Cabbage Butterfly-बन्दाको पुतली",
+            "crucifer2|Diamond Black Moth-इटबुट्टे पुतली",
+            "crucifer3|Cabbage Flea bettle-उफ्रने खपटे",
+            "crucifer4|Mustard SawFly-तोरीको करौते किरा",
+            "crucifer5|Mustard Aphid-तोरीको लाही किरा",
+            "crucifer6|Cutworms-फेद काट्ने किरा",
+            "crucifer7|Tobacco Caterpillar-सुर्तीको पात खाने लार्भा"
         ];
-       }else if(s1.value == "fruits"){
-        var optionArray = [
-            "choose_fruits|Choose Fruits-फलफुल छान्नुहोस्",
-            "mango|Mango-आप",
-            "banana|Banana-केरा",
-            "papaya|Papaya-मेवा",
-            "pineapple|Pineapple-भुइकटर्",
-            "citrus|Citrus-सिट्रस",
-            "guava|Guava-अम्बा",
-            "apple|Apple-स्याउ",
-            "pear|Pear-नास्पति",
-            "peach|Peach-आरु",
-            "grapes|Grapes-अंगुर",
-            "kiwi|Kiwi-किवी",
-            "pomegranate|Pomegranate-अनार", 
-            "cardamom|Cardamom-अलैंची",
-            "coffee|Coffee-कफी",  
-            "tea|Tea-चिया"  
+    }else if(c1.value == "legumes"){
+        var pestArray = [
+            "legumes1|Chickpea pod borer-चनाको कोशाको गवारो",
+            "legumes2|Soybean Hairy Caterpillar-भटमासको झुसिलकिरो",
+            "legumes3|Pea leaf miner-केराउको पात खन्ने किरा",
+            "legumes4|Cowpea Pod borer-बोडीको कोशाको गवारो",
+            "legumes5|Spotted pod borer-कोषाको थोप्ले गवारो",
+            "legumes6|Semilooper-अर्धलुपर",
+            "legumes7|Cowpea aphid/ blackbean aphid-लाही किरा",
+            "legumes8|Legume pod bug-",
+            "legumes9|Pest stem fly-केराउको काण्डको झिंगा"
         ];
-       }else if(s1.value == "cereal"){
-        var optionArray = [
-            "choose_cereal|Choose Cereal Crops-खाध्यवाली छान्नुहाेस",
-            "rice|Rice-धान",
-            "wheat|Wheat-गहुँ ",
-            "maize|Maize-मकै",
-            "barley|Barley-जौ "
+    }else if(c1.value == "cucurbits"){
+        var pestArray = [
+            "cucurbits1|Red pumpkin bettle-फर्सीको रातो खपटे",
+            "cucurbits2|Cucurbit stink bug-गन्हाउने पतेरो",
+            "cucurbits3|Pumpkin fruit fly-फर्सीको फल खाने औँसा",
+            "cucurbits4|Spotted bettle-थोप्ले खपटे"
         ];
-    }else if(s1.value == "legume"){
-        var optionArray = [
-           "choose_legume|Choose Legume Crops-कोसेबाली छान्नुहोस्",
-            "lentil|Lentil-मसुरो",
-            "chickpea|ChickPea-चना"
+    }else if(c1.value == "tomato"){
+        var pestArray = [
+            "tomato1|Tomato fruit borer-गोलभेडाको फलको गवारो",
+            "tomato2|Potato tuber moth-आलुको पुतली",
+            "tomato3|Red ant-रातो कमिला",
+            "tomato4|Whitefly-सेतो झिडा",
+            "tomato5|jassid-फड्के किरा",
+            "tomato6|Aphid-लाही किरा",
+            "tomato7|Peal leaf miner-",
+            "tomato8|Tomato leaf miner-गोलभेडाको पात खन्ने किरा",
+            "tomato9|Cutworms-"
         ];
-    }else if(s1.value == "oilseed"){
-        var optionArray = [
-            "choose_oilseed|Choose Oilseed-तेल्बाली छान्नुहोस्",
-            "groundnut|Groundnut-बदाम",
-            "sunflower|Sunflower-सूर्यमुखी"
+    }
+    else if(c1.value == "brinjal"){
+        var pestArray = [
+            "brinjal1|Brinjal Shoot & Fruit Borer-भेन्टाको फल तथा काण्डको गवारो",
+            "brinjal2|Brinjal Leaf Folder-पात बटार्ने किरा",
+            "brinjal3|Brinjal Leaf Webber-पातको जाले किरा",
+            "brinjal4|Spotted bettle-थोप्ले खपटे"
+        ];
+    }
+    else if(c1.value == "cotton"){
+        var pestArray = [
+            "cotton1|Cotton Jassid-फड्के किरा",
+            "cotton2|Cotton Aphid-कपासको लाही",
+            "cotton3|Cotton Whitefly-सेतो झिडा",
+            "cotton4|Red Cotton Bug-कपासको रातो पतेरो",
+            "cotton5|Pink Bollworm-गुलाबी गवारो",
+            "cotton6|Okra fruit & Shoot Borer-फल तथा काण्डको गवारो",
+            "cotton7|American Bollworm-अमेरिकन गवारो"
+        ];
+    }
+    else if(c1.value == "chilly"){
+        var pestArray = [
+            "chilly1|Chilly Thrips-खुर्सानीको चुसाहा किरा",
+            "chilly2|Cutworms-फेद काट्ने किरा",
+            "chilly3|Soybean Hairy Caterpillar-भटमासका झुसिलाकिरा",
+            "chilly4|Tobacco caterpillar-सुर्तीको पात खाने लार्भा"
+        ];
+    }
+    else if(c1.value == "onion"){
+        var pestArray = [
+            "onion1|Onion thrips-प्याजको चुसाहा किरा",
+            "onion2|Onion maggot-प्याजको झिंगा"
+        ];
+    }
+    else if(c1.value == "temperate-fruit"){
+        var pestArray = [
+            "temperate1|Tent caterpillar-पालन बनाउने लार्भा",
+            "temperate2|Wooly Apple Aphid-भुवादार लाही",
+            "temperate3|San Jose Scale-कत्ले किरा",
+            "temperate4|Apple Stem Borer-काण्डको गवारो",
+            "temperate5|Apple Root Borer-जराको गवारो",
+            "temperate6|Peach Leaf Curl Aphid-आरुको पात बटार्ने किरा"
+        ];
+    }
+    else if(c1.value == "mango"){
+        var pestArray = [
+            "mango1|Mango Hopper-फड्के किरा",
+            "mango2|Mango Mealy Bug-मिलिबग",
+            "mango4|Mango Leaf Webber-पातको जाले किरा",
+            "mango5|Mango Stone Weevil-कोयाको घुन",
+            "mango6|Mango Gall Psyllid-आपको साइलीड"
+        ];
+    }
+    else if(c1.value == "pomegranate"){
+        var pestArray = [
+            "pomegranate1|Pomergranate Butterfly-अनारको पुतली",
+            "pomegranate2|Bark Caterpillar-बोक्रा खाने लार्भा",
+            "pomegranate3|Mealy Bug-मिलिबग",
+            "pomegranate4|Whitefly-सेतोझिंडा",
+            "pomegranate5|Aphid-लाही किरा"
+        ];
+    }
+    else if(c1.value == "litchi"){
+        var pestArray = [
+            "litchi1|Litchi Bug-लिचीको पतेरो",
+            "litchi2|Litchi Leaf Curl Mite-पात बटार्ने सुलसुले"
+        ];
+    }
+    else if(c1.value == "banana"){
+        var pestArray = [
+            "banana1|Banana Rhizome & Pseudostem Weevil-केराको गानोको घुन",
+            "banana2|Banana Skipper-केराको पुतली",
+            "banana3|Banana Leaf and Fruit Scaring Bettle-पात र कोशामा दाग लागाउने खपटे",
+            "banana4|Banana Aphid-केराको लाही"
+        ];
+    }
+    else if(c1.value == "citrus"){
+        var pestArray = [
+            "citrus1|Citrus Psylla-सिट्रस सिल्ला",
+            "citrus2|Citrus Green Stink Bug-सुन्तलाको पतेरो",
+            "citrus3|Red Scale-रातो कत्ले किरो",
+            "citrus4|Citrus Aphid-लाही किरा",
+            "citrus5|Citrus Leaf Miner-पात खन्ने किरा",
+            "citrus6|Citrus Mealy Bug-मिलिबग"
+        ];
+    }
+    else if(c1.value == "coffee"){
+        var pestArray = [
+            "coffee1|Green scale of coffee-कत्ले किरा"
+        ];
+    }
+    else if(c1.value == "tea"){
+        var pestArray = [
+            "tea1|Tea Mosquito Bug-चियाको पतेरो",
+            "tea2|Scarlet Mite-रातो सुलसुले",
+            "tea3|Red Spider Mite-रातो माकुरो सुलसुले",
+            "tea4|Purple Mite-पर्पल सुलसुले"
+        ];
+    }
+    else if(c1.value == "cardamom"){
+        var pestArray = [
+            "cardamom1|Leaf Eating Caterpillar-पात खाने लार्भा",
+            "cardamom2|Banana Aphid-लाही किरा",
+            "cardamom3|Cardamom Thrips-अलैचीको चुसाहा",
+            "cardamom4|Cardamom Hairy Caterpillar-अलैचीको झुसिलकिरो"
+        ];
+    }
+    else if(c1.value == "rice"){
+        var pestArray = [
+            "rice1|Brown Plant hopper-पहेलो फड्के किरो",
+            "rice2|Yellow stem borer-धानको पहेलो गवारो",
+            "rice3|Rice caseworm-केसवार्म",
+            "rice4|Rice hispa-काडे खपटे",
+            "rice5|Rice Gasshopper-धानको फट्यान्ग्रो",
+            "rice6|Rice leaf folder-पात बटार्ने किरा",
+            "rice7|Armyworm-फौजिकिरा",
+            "rice8|Seed bed bettle-रिठ्ठे किरा",
+            "rice9|Rice gall midge-डुंन्ग्रे किरा"
+        ];
+    }
+    else if(c1.value == "maize"){
+        var pestArray = [
+            "maize1|Maize stem borer-मकैको गवारो",
+            "maize2|Armyworm-फौजिकिरा",
+            "maize3|Flower bettle-पुष्प खपटे",
+            "maize4|cutworm-फेद काट्ने किरा",
+            "maize5|Wireworm-किटकिटे खपटे",
+            "maize6|American Fall Armyworm-अमेरिकी फौजिकिरा"
+        ];
+    }
+    else if(c1.value == "wheat"){
+        var pestArray = [
+            "wheat1|Pink Borer-गुलावी गवारो",
+            "wheat2|Termites-धमिरा",
+            "wheat3|Wireworms-किटकिटे खपटे",
+            "wheat4|Aphid-लाही किरा"
+        ];
+    }
+    else if(c1.value == "sugarcane"){
+        var pestArray = [
+            "sugarcane1|Plassey Borer-प्ल्याजी गवारो",
+            "sugarcane2|Sugarcane Top Borerतुप्पाको गवारो",
+            "sugarcane3|Early Shoot Borer-काण्डको गवारो",
+            "sugarcane4|Sugarcane Leafthopper-पातको फड्के किरा",
+            "sugarcane5|Grasshopper-फट्यांन्ग्रो"
+        ];
+    }
+    else if(c1.value == "jute"){
+        var pestArray = [
+            "jute1|Jute Hairy Caterpillar (Bihari)-जुटको झुसिलकिरो",
+            "jute2|Jute Semilooper-जुटको अर्धलुपर",
+            "jute3|Armyworm-फौजीकिरा",
+            "jute4|Jute Stem Weevil-काण्डको घुन",
+            "jute5|Jute Mealy Bug-मिलिबग"
         ];
     }
 
-       for(var option in optionArray){
-        var pair = optionArray[option].split("|");
+    for(var option in pestArray){
+        var pair = pestArray[option].split("|");
         var newOption = document.createElement("option");
         newOption.value = pair[0];
         newOption.innerHTML = pair[1];
-        s2.options.add(newOption);
-       }
+        c2.options.add(newOption);
     }
-
-    function showDiseases(c1, c2){
-        var c1 = document.getElementById(c1);
-        var c2 = document.getElementById(c2);
-
-        c2.innerHTML = "";
-
-        if(c1.value == "potato"){
-            var diseasesArray = [
-                "late|Late & Early Blight-डडुवा रोग",
-                "wart|Wart-ऐजेरु",
-                "brown-rot|Brown root-ओईलाउने वा खैरो पिप चक्ने रोग",
-                "potato-diseases|Potato Viral Diseases-आलुको भाइरल रोग"
-            ];
-        }else if(c1.value == "rice"){
-            var diseasesArray = [
-                "rice-blast|Rice Blast-मरुवा रोग",
-                "brown-spot|Brown Spot-खैरो थोप्ले रोग",
-                "sheath-blight|Sheath Blight-पात र फेद डडुवा रोग",
-                "bacterial-blight|Bacterial Blight-फेद कुहिने रोग",
-                "false-smut|False Smut-कालो पोके रोग",
-                "khaira-disease|Khaira Disease-खैरो रोग"
-            ];
-        }else if(c1.value == "wheat"){
-            var diseasesArray = [
-                "leaf-blight-wheat|Leaf Blight-पात डडुवा रोग",
-                "brown-rust|Brown Rust of Wheat-खैरो सिन्दुरे रोग",
-                "yellow-rust|Yellow Rust-पहेलो सिन्दुरे रोग",
-                "loose-smut|Loose Smut-कालो पोके रोग",
-                "stinking-smut|Stinking Smut-गन्हाउने कालो पोके रोग"
-            ];
-        }else if(c1.value == "maize"){
-            var diseasesArray = [
-                "leaf-blight-maize|Leaf Blight of maize-पातको डडुवा रोग",
-                "grey-leaf|Grey Leaf Spot-पातको ध्वासे रोग",
-                "downey-mildew|Downey Mildew-शिते ढुसी रोग",
-                "head-smut|Head Smut-कालो पोके रोग",
-                "cob-rot|Cob Rot/Ear Rot-घोगा कुहिने रोग",
-                "bacterial-stalk|Bacterail Stalk Rot-डाठ कुहिने रोग"
-            ];
-        }else if(c1.value == "barley"){
-            var diseasesArray = [
-                "yellow-rust|Yellow Rust-पहेलो सिन्दुरे रोग",
-                "stripe-rust|Stripe Rust-धर्से रोग",
-                "smut|Smut-पोके रोग"
-            ];
-        }else if(c1.value == "lentil"){
-            var diseasesArray = [
-                "blight-lentil|Blight-डडुवा रोग"
-            ];
-        }else if(c1.value == "chickpea"){
-            var diseasesArray = [
-                "botrytis-grey|Botrytis Grey Mold-खैरे रोग",
-                "foot-rot-chickpea|Foot Rot-फेद कुहिने रोग"
-            ];
-        }else if(c1.value == "tomato"){
-            var diseasesArray = [
-                "blight-tomato|Blight-डडुवा रोग",
-                "leaf-curl|Leaf Curl Virus-पात घुम्रिने रोग",
-                "phomopsis-blight|Phomopsis Blight-डडुवा",
-                "wilt|Wilt-ओइलाउने रोग",
-                "damping-off-tomato|Damping Off-बेर्ना कुहिने रोग",
-                "alternaria-leaf-tomato|Alternaria Leaf Spot-भन्टाको थोप्ले रोग",
-                "anthracnose-tomato|Anthracnose-कोत्रे रोग"
-            ];
-        }else if(c1.value == "crucifer"){
-            var diseasesArray = [
-                "alternaria-leaf-crucifier|Alternaria Leaf Spot-अल्टरनेरिया थोप्ले रोग",
-                "downy-mildew|Downy Mildew-शिते ढुसी रोग",
-                "club-root|Club Root-गदाजस्तो जरा हुने रोग",
-                "damping-off-crucifer|Damping Off-बेर्ना कुहिने रोग",
-                "white-rust|White Rust of Crucifer-सेतो सिन्दुरे रोग"
-            ];
-        }else if(c1.value == "root"){
-            var diseasesArray = [
-                "bacterial-leaf|Bacterial Leaf Blight-डडुवा रोग",
-                "alternaria-leaf-root|Alternaria Leaf Spot-अल्टरनेरिया थोप्ले रोग"
-            ];
-        }else if(c1.value == "cucurbit"){
-            var diseasesArray = [
-                "powdery-mildew-cucurbit|Powdery Mildew-धुले ढुसी रोग",
-                "downy-mildew|Downy mildew-शिते ढुसी रोग"
-            ];
-        }else if(c1.value == "bean"){
-            var diseasesArray = [
-                "rust|Rust-सिन्दुरे रोग",
-                "powdery-mildew-bean|Powdery Mildew-धुले ढुसी रोग",
-                "anthracnose-bean|Anthracnose-कोत्रे रोग",
-                "root-rot|Root Rot & Web Blight-जरा कुहिने र जाले पात डडुवा रोग",
-                "leaf-spot|Leaf Spot(Cercospora + Angular-थोप्ले रोग)",
-                "mosaic-virus|Mosaic Virus-मोजाइक भाइरस"
-            ];
-        }else if(c1.value == "brinjal"){
-            var diseasesArray = [
-                "okra-yellow|Okra Yellow Vein Mosaic-पहेलो नशा मोजाइक भाइरस रोग",
-                "root-knot|Root Knot Nematode-जरामा गाठो पर्ने रोग"
-            ];
-        }else if(c1.value == "bulbous"){
-            var diseasesArray = [
-                "basal-rot|Basal Rot of Onion-फेद कुहिने रोग",
-                "leaf-blight-bulbous|Leaf Blight-पातको डडुवा रोग",
-                "root-rot-bulbous|Root Rot-जरा कुहिने रोग"
-            ];
-        }else if(c1.value == "ginger"){
-            var diseasesArray = [
-                "rhizome-rot|Rhizome Rot-गानो कुहिने रोग",
-                "bacterial-wilt|Bacterial Wilt-ओईलाउने रोग",
-                "leaf-root-ginger|Leaf Spot-थोप्ले रोग"
-            ];
-        }else if(c1.value == "coriander"){
-            var diseasesArray = [
-                "wilt-corainder|Wilt-ओइलाउने रोग",
-                "stem-gall|Stem Gall-काण्डमा गाँठो पर्ने रोग"
-            ];
-        }else if(c1.value == "groundnut"){
-            var diseasesArray = [
-                "white-blister-groundnut|White Blister-सेते रोग",
-                "downy-mildew-groundnut|Downy Mildew-शिते ढुसी रोग",
-                "powdery-mildew-groundnut|Powdery Mildew-धुले ढुसी रोग",
-                "tikka-diseases|Tikka Diseases of Groundnut-थोप्ले रोग",
-                "red-stripe|Red Stripe Rust-सिन्दुरे रोग"
-            ];
-        }
-        else if(c1.value == "sunflower"){
-            var diseasesArray = [
-                "leaf-root-sunflower|Leaf Rot-डाठ र जरा कुहिने रोग",
-                "red-stripe-sunflower|Red Stripe Rust-सिन्दुरे रोग"
-            ];
-        }else if(c1.value == "mango"){
-            var diseasesArray = [
-                "mango-anthracnose|Mango Anthracnose-कोत्रे रोग",
-                "powdery-mildew-mango|Powdery Mildew-शिते ढुसी रोग",
-                "red-rust-mango|Red Rust of Mango/Litchi-रातो सिन्दुरे रोग",
-                "mango-malformation|Mango Malformation-आपको कुरूप रोग",
-                "black-tip|Black Tip of Mango-फलको टुप्पो कालो हुने रोग",
-                "sooty-mold|Sooty Mold-कालो पत्रे रोग"
-            ];
-        }else if(c1.value == "banana"){
-            var diseasesArray = [
-                "wilt-banana|Wilt(Panama & Moko-केराको बोट ओइलाउने रोग)",
-                "sigatoka-disease|Sigatoka Disease-केराको सीगाटोका रोग",
-                "banana-anthracnose|Banana Anthracnose-कोत्रे रोग",
-                "banana-bunchy|Banana Bunchy Top-टुप्पोमा झुप्पा हुने रोग"
-            ];
-        }else if(c1.value == "papaya"){
-            var diseasesArray = [
-                "foot-rot-papaya|Foot & Root Rot-फेद र जरा कुहिने रोग"
-            ];
-        }else if(c1.value == "pineapple"){
-            var diseasesArray = [
-                "leaf-rot-pineapple|Leaf & Fruit Rot-पात तथा फल कुहिने रोग",
-                "heart-rot-pineapple|Heart Rot & Crown Rot-क्राउन कुहिने रोग"
-            ];
-        }else if(c1.value == "citrus"){
-            var diseasesArray = [
-                "powdery-mildew-citrus|Powdery Mildew-धुले ढुसी रोग",
-                "citrus-greening|Citrus Greening-सित्रस ग्रिनिंग रोग",
-                "citrus-canker|Citrus Canker-सिट्रस क्यांकर",
-                "citrus-scab|Citrus Scab-सिट्रसको दादे रोग",
-                "gummosis-rot|Gummosis & Foot Rot-गुद आउने र फेद कुहिने रोग",
-                "quick-decline|Quick Decline-कुइक डीक्लाइन "
-            ];
-        }else if(c1.value == "guava"){
-            var diseasesArray = [
-                "guava-rust|Guava Rust-सिन्दुरे रोग",
-                "algal-leaf-spot|Algal Leaf Spot-थोप्ले रोग",
-                "guava-anthracnose|Guava Anthracnose-कोत्रे रोग"
-            ];
-        }else if(c1.value == "apple"){
-            var diseasesArray = [
-                "apple-scab|Apple Scab-दादे रोग",
-                "powdery-mildew-apple|Powdery Mildew-धुले ढुसी रोग",
-                "papery-bark|Papery Bark-बोक्रा खुइलिने रोग",
-                "pink-disease|Pink Disease"
-            ];
-        }else if(c1.value == "pear"){
-            var diseasesArray = [
-                "black-rot-pear|Black Rot & Bitter Rot-फल कुहिने रोग ",
-                "leaf-blight|Leaf Blight & Spot-डडुवा र थोप्ले रोग"
-            ];
-        }else if(c1.value == "peach"){
-            var diseasesArray = [
-                "peach-leaf|Peach Leaf Curl-पात दोब्रिने रोग",
-                "peach-powdery-mildew|Powdery Mildew-धुले ढुसी रोग"
-            ];
-        }else if(c1.value == "grapes"){
-            var diseasesArray = [
-                "downy-mildew-grapes|Downy Mildew-शिते ढुसी रोग",
-                "powdery-mildew-grapes|Powdery Mildew-धुले ढुसी रोग",
-                "bird-eye|Bird eye Spot or ANthracnose-चरिनयन थोप्ले रोग"
-            ];
-        }else if(c1.value == "kiwi"){
-            var diseasesArray = [
-                "foot-rot-kiwi|Foot & Root Rot-जरा कुहिने रोग",
-                "powdery-mildew-kiwi|Powdery Mildew-धुले ढुसी रोग"
-            ];
-        }else if(c1.value == "pomegranate"){
-            var diseasesArray = [
-                "alternaria|Alternaria & Cercospora Fruit Spot-",
-                "leaf-blight-pomegranate|Leaf Blight-पातको डडुवा रोग"
-            ];
-        }else if(c1.value == "cardamom"){
-            var diseasesArray = [
-                "clump-root-cardamom|Clump Root-जरा तथा पाना कुहिने रोग",
-                "leaf-rot-cardamom|Leaf Rot-पात कुहिने रोग",
-                "stunty-mosaic-virus|Stunty & Streak Mosaic Virus-छिर्के र फुर्क्के रोग"
-            ];
-        }else if(c1.value == "coffee"){
-            var diseasesArray = [
-                "coffee-rust|Coffee Rust-सिन्दुरे रोग",
-                "black-rot|Black Rot-पात कुहिने रोग",
-                "brown-blight|Brown Blight-खैरो डडुवा रोग"
-            ];
-        }else if(c1.value == "tea"){
-            var diseasesArray = [
-                "blight-tea|Blight of Tea-डडुवा रोग ",
-                "twig|Twig Dieback-टुप्पो मर्ने रोग "
-            ];
-        }
-
-        for(var option in diseasesArray){
-            var pair = diseasesArray[option].split("|");
-            var newOption = document.createElement("option");
-            newOption.value = pair[0];
-            newOption.innerHTML = pair[1];
-            c2.options.add(newOption);
-        }
-    }
+}
